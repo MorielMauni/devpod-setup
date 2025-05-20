@@ -1,41 +1,28 @@
-
-#!/usr/bin/env bash
-
+#!/bin/bash
 set -e
 
-# CONFIG
-REPO_URL="https://github.com/MorielMauni/nvim-dotfiles"
-CONFIG_DIR="$HOME/.config/nvim"
-TEMP_DIR="$HOME/.nvim-dotfiles-tmp"
-
-echo "[+] Installing dependencies..."
-if command -v apt &> /dev/null; then
-    sudo apt update && sudo apt install -y git neovim
-elif command -v pacman &> /dev/null; then
-    sudo pacman -Syu --noconfirm git neovim
-elif command -v dnf &> /dev/null; then
-    sudo dnf install -y git neovim
-else
-    echo "Unsupported package manager. Install git and neovim manually."
-    exit 1
+# Install Homebrew if not already installed
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-echo "[+] Cloning or updating repo..."
-if [ -d "$TEMP_DIR" ]; then
-    git -C "$TEMP_DIR" pull
-else
-    git clone "$REPO_URL" "$TEMP_DIR"
-fi
+# Ensure brew is in PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-echo "[+] Backing up old Neovim config if it exists..."
-if [ -d "$CONFIG_DIR" ] || [ -L "$CONFIG_DIR" ]; then
-    mv "$CONFIG_DIR" "${CONFIG_DIR}.backup.$(date +%s)"
-fi
+# Fix shallow clone to allow full updates
+git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow || true
 
-echo "[+] Symlinking config..."
-ln -s "$TEMP_DIR" "$CONFIG_DIR"
+# Tap required repos
+brew tap fluxcd/tap
 
-echo "[+] Launching Neovim to install plugins..."
-nvim --headless "+Lazy! sync" +qa
+# Install packages
+brew install \
+  npm \
+  lazygit \
 
-echo "[✓] Neovim config installed and plugins synced!"
+# Optional: Set up fzf
+"$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
+
+echo "✅ All done!"
