@@ -20,6 +20,7 @@ brew install \
   luarocks \
   npm \
   lazygit \
+  bash-completion \
 
 # Optional: Set up fzf
 "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
@@ -31,7 +32,7 @@ alias n='nvim'
 
 # Kubectl
 alias k='kubectl'
-source /etc/bash_completion.d/000_bash_completion_compat.bash
+[[ -r "/home/linuxbrew/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/linuxbrew/.linuxbrew/etc/profile.d/bash_completion.sh"
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
