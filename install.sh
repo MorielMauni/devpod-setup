@@ -17,6 +17,7 @@ git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core f
 # Install packages
 brew install \
   fzf \
+  luarocks \
   npm \
   lazygit \
 
@@ -48,5 +49,7 @@ alias la='ls -la'
 alias ll='ls -l'
 
 EOF
+
+source ~/.bashrc
 
 echo "✅ All done!"
