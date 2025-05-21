@@ -21,6 +21,7 @@ brew install \
   npm \
   lazygit \
   bash-completion \
+  astral-sh/uv/uv \
 
 # Optional: Set up fzf
 "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
