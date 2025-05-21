@@ -14,6 +14,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Fix shallow clone to allow full updates
 git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow || true
 
+# Install packages
+brew install \
+  fzf \
+  npm \
+  lazygit \
+
+# Optional: Set up fzf
+"$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
+
 # Aliases
 cat << 'EOF' >> ~/.bashrc
 alias gs='git status'
@@ -39,13 +48,5 @@ alias la='ls -la'
 alias ll='ls -l'
 
 EOF
-
-# Install packages
-brew install \
-  npm \
-  lazygit \
-
-# Optional: Set up fzf
-"$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
 
 echo "✅ All done!"
