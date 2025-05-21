@@ -2,6 +2,7 @@
 
 1. Install my NeoVim configurations
 2. Install apps (with brew):
+   + nvim and brew are installed with the .devcontainer
    - fzf
    - luarocks
    - npm
