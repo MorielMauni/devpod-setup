@@ -5,7 +5,7 @@
    - fzf
    - luarocks
    - npm
-   = lazygit
-   = bash-completion
+   - lazygit
+   - bash-completion
    - astral-sh/uv/uv
 4. Update Aliases
