@@ -22,6 +22,7 @@ brew install \
   lazygit \
   bash-completion \
   astral-sh/uv/uv \
+  tmux \
 
 # Optional: Set up fzf
 "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
