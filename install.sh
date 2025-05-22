@@ -55,4 +55,15 @@ EOF
 
 source ~/.bashrc
 
+if ! grep -q "exec tmux" ~/.bashrc; then
+  cat << 'EOF' >> ~/.bashrc
+
+# Start tmux automatically if not already inside tmux
+if [ -z "\$TMUX" ] && command -v tmux &>/dev/null; then
+  exec tmux
+fi
+EOF
+fi
+
+
 echo "✅ All done!"
