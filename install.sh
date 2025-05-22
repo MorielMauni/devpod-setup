@@ -65,5 +65,8 @@ fi
 EOF
 fi
 
+# Copy .tmux.conf from repo to home
+cp /tmp/setup/.tmux.conf ~/.tmux.conf
+
 
 echo "✅ All done!"
