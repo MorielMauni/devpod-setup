@@ -1,0 +1,21 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/homebrew:1": {
+      "installPackages": [
+        "fzf",
+        "luarocks",
+        "npm",
+        "lazygit",
+        "bash-completion",
+        "astral-sh/uv/uv",
+        "tmux"
+      ]
+    },
+    "ghcr.io/devcontainers-contrib/features/neovim-homebrew:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers-contrib/features/git:1": {}
+  },
+  "onCreateCommand": "git clone https://github.com/MorielMauni/nvim-dotfiles ~/.config/nvim && cp ~/.config/nvim/.tmux.conf ~/.tmux.conf",
+  "postCreateCommand": "bash -c 'source ~/.bashrc || true'"
+}
