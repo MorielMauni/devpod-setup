@@ -20,6 +20,8 @@ alias devpod='devpod-cli'
 alias la='ls -la'
 alias ll='ls -l'
 
+export TERM=xterm-256color
+
 # Start tmux automatically
 if [ -z "$TMUX" ] && command -v tmux &>/dev/null; then
   exec tmux
