@@ -53,8 +53,6 @@ alias ll='ls -l'
 
 EOF
 
-source ~/.bashrc
-
 if ! grep -q "exec tmux" ~/.bashrc; then
   cat << 'EOF' >> ~/.bashrc
 
@@ -68,5 +66,6 @@ fi
 # Copy .tmux.conf from repo to home
 cp /tmp/setup/.tmux.conf ~/.tmux.conf
 
+source ~/.bashrc
 
 echo "✅ All done!"
