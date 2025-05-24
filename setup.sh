@@ -29,8 +29,7 @@ brew install \
   bash-completion \
   tmux || true
 
-brew tap astral-sh/uv || true
-brew install uv || true
+brew install astral-sh/uv/uv || true
 
 # Backup and link dotfiles
 backup_and_link() {
