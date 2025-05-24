@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
+
 # Resolve repo root directory (absolute path)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
