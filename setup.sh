@@ -31,7 +31,7 @@ brew install \
   bash-completion \
   tmux || true
 
-brew install astral-sh/uv/uv || true
+# brew install astral-sh/uv/uv || true
 
 # Backup and link dotfiles
 backup_and_link() {
