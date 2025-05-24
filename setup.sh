@@ -15,7 +15,15 @@ fi
 brew update
 brew upgrade
 
-brew install fzf luarocks npm lazygit bash-completion tmux || true
+brew install \
+fzf \
+luarocks \
+npm \
+lazygit \
+bash-completion \
+tmux \ 
+|| true
+
 brew tap astral-sh/uv || true
 brew install uv || true
 
